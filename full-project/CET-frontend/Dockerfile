@@ -8,3 +8,4 @@ Run npm run build -- --prod
 #stage 1
 FROM nginx:alpine
 COPY --from=node /app/dist/CET /usr/share/nginx/html
+
