@@ -3,78 +3,112 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InformacionService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getComentarios(): Observable<any> {
-    return this.http.get("http://localhost:3000/comentarios");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/comentarios'
+    );
   }
 
   getPromociones(): Observable<any> {
-    return this.http.get("http://localhost:3000/promociones");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/promociones'
+    );
   }
 
   getEstadisticasPromociones(): Observable<any> {
-    return this.http.get("http://localhost:3000/promociones/estadisticas");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/promociones/estadisticas'
+    );
   }
 
-  getUsuario(usuario) : Observable<any>{
-    let url = "http://localhost:3000/personas/searchUsuario?id="+usuario
+  getUsuario(usuario): Observable<any> {
+    let url =
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/searchUsuario?id=' +
+      usuario;
     return this.http.get(url);
   }
 
-  getUsuarios() : Observable<any>{
-    return this.http.get("http://localhost:3000/personas/usuarios");
+  getUsuarios(): Observable<any> {
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/usuarios'
+    );
   }
 
   getIntegrantes(): Observable<any> {
-    return this.http.get("http://localhost:3000/personas/empleados");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/empleados'
+    );
   }
 
-  getPersona(id):Observable<any> {
-    let url = "http://localhost:3000/personas/search?id="+id
+  getPersona(id): Observable<any> {
+    let url =
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/search?id=' +
+      id;
     return this.http.get(url);
   }
 
-  getArea(id):Observable<any> {
-    let url = "http://localhost:3000/areas/search?id="+id
+  getArea(id): Observable<any> {
+    let url =
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/areas/search?id=' +
+      id;
     return this.http.get(url);
   }
 
-  getTipo(id):Observable<any> {
-    let url = "http://localhost:3000/tiposervicios/search?id="+id
+  getTipo(id): Observable<any> {
+    let url =
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/tiposervicios/search?id=' +
+      id;
     return this.http.get(url);
   }
 
   getTratamientos(): Observable<any> {
-    return this.http.get("http://localhost:3000/servicios");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/servicios'
+    );
   }
 
   getEstaditicasCitas(): Observable<any> {
-    return this.http.get("http://localhost:3000/citas/estadisticas");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/citas/estadisticas'
+    );
   }
 
   getEstadisticas(): Observable<any> {
-    return this.http.get("http://localhost:3000/estadisticas");
+    return this.http.get(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/estadisticas'
+    );
   }
 
   postContactanos(form): Observable<any> {
-    return this.http.post("http://localhost:3000/contactanos/email",form);
+    return this.http.post(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/contactanos/email',
+      form
+    );
   }
 
   postNuevoUsuario(form): Observable<any> {
-    return this.http.post("http://localhost:3000/personas/",form);
+    return this.http.post(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/',
+      form
+    );
   }
 
   putUsuario(form): Observable<any> {
-    return this.http.put("http://localhost:3000/personas/",form);
+    return this.http.put(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/',
+      form
+    );
   }
 
   delUsuario(form): Observable<any> {
-    return this.http.delete("http://localhost:3000/personas/",form);
+    return this.http.delete(
+      'http://distribuidosbalancer-909688984.us-east-1.elb.amazonaws.com/personas/',
+      form
+    );
   }
-
 }
